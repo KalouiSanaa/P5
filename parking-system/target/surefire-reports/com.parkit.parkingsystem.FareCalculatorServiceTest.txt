@@ -1,46 +1,24 @@
 -------------------------------------------------------------------------------
 Test set: com.parkit.parkingsystem.FareCalculatorServiceTest
 -------------------------------------------------------------------------------
-Tests run: 14, Failures: 9, Errors: 0, Skipped: 0, Time elapsed: 3.535 s <<< FAILURE! - in com.parkit.parkingsystem.FareCalculatorServiceTest
-calculateFareCarWithLessThanOneHourParkingTime  Time elapsed: 1.026 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <1.13> but was: <0.0>
-	at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareCarWithLessThanOneHourParkingTime(FareCalculatorServiceTest.java:114)
+Tests run: 14, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 1.217 s <<< FAILURE! - in com.parkit.parkingsystem.FareCalculatorServiceTest
+calculateFareCarWithLessThanOneHourParkingTime  Time elapsed: 0.005 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1.125> but was: <0.0>
+	at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareCarWithLessThanOneHourParkingTime(FareCalculatorServiceTest.java:113)
 
-calculateFarBikeWithMoreThanADayParkingTime  Time elapsed: 1.014 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <24.0> but was: <23.5>
-	at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFarBikeWithMoreThanADayParkingTime(FareCalculatorServiceTest.java:142)
+reccurentUserForCarTest  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1.42> but was: <0.0>
+	at com.parkit.parkingsystem.FareCalculatorServiceTest.reccurentUserForCarTest(FareCalculatorServiceTest.java:207)
 
-reccurentUserForCarTest  Time elapsed: 0.004 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <1.0> but was: <0.75>
-	at com.parkit.parkingsystem.FareCalculatorServiceTest.reccurentUserForCarTest(FareCalculatorServiceTest.java:208)
+reccurentUserWithLessDayCarTestParking  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <34.199999999999996> but was: <0.0>
+	at com.parkit.parkingsystem.FareCalculatorServiceTest.reccurentUserWithLessDayCarTestParking(FareCalculatorServiceTest.java:179)
 
-reccurentUserWithLessDayCarTestParking  Time elapsed: 0.003 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <34.2> but was: <0.0>
-	at com.parkit.parkingsystem.FareCalculatorServiceTest.reccurentUserWithLessDayCarTestParking(FareCalculatorServiceTest.java:182)
-
-reccurentUserForBikeTest  Time elapsed: 0.307 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: 
-
-Expecting:
- <0.5>
-to be equal to:
- <0.95>
-but was not.
+reccurentUserForBikeTest  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0.95> but was: <0.0>
 	at com.parkit.parkingsystem.FareCalculatorServiceTest.reccurentUserForBikeTest(FareCalculatorServiceTest.java:222)
 
-calculateFareCar  Time elapsed: 0.002 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <1.5> but was: <0.75>
-	at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareCar(FareCalculatorServiceTest.java:43)
-
-calculateFareBike  Time elapsed: 0.003 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <0.5> but was: <1.0>
-	at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareBike(FareCalculatorServiceTest.java:57)
-
-reccurentUserWithLessDayBikeTestParking  Time elapsed: 0.003 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <22.799999999999997> but was: <0.0>
-	at com.parkit.parkingsystem.FareCalculatorServiceTest.reccurentUserWithLessDayBikeTestParking(FareCalculatorServiceTest.java:194)
-
-calculateFareCarWithMoreThanADayParkingTime  Time elapsed: 1.007 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <36.0> but was: <35.25>
-	at com.parkit.parkingsystem.FareCalculatorServiceTest.calculateFareCarWithMoreThanADayParkingTime(FareCalculatorServiceTest.java:128)
+reccurentUserWithLessDayBikeTestParking  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0.95> but was: <0.0>
+	at com.parkit.parkingsystem.FareCalculatorServiceTest.reccurentUserWithLessDayBikeTestParking(FareCalculatorServiceTest.java:192)
 
