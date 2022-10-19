@@ -9,6 +9,7 @@ public class Ticket {
     private Date inTime;
     private Date outTime;
     private boolean recurent;
+    private boolean atParking;
 
 
     public int getId() {
@@ -65,5 +66,13 @@ public class Ticket {
 
 	public void setRecurent(boolean recurent) {
 		this.recurent = recurent;
+	}
+
+	public boolean getAtParking() {
+		return atParking;
+	}
+
+	public void setAtParking(boolean atParking) {
+		this.atParking = atParking;
 	}
 }

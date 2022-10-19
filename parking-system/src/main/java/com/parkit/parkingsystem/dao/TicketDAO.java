@@ -118,32 +118,27 @@ public boolean recurrentUsers (String vehiculeNumber) {
     return recurent;
 }
 
-public boolean VehicleInParkingYet(String vehicleRegNumber) {
-    Connection con = null;
+
+public boolean alreadyAtParking (String vehiculeRegNumber) {
     boolean inParking = false;
-    PreparedStatement ps = null;
-    ResultSet rs = null;
+    Connection con = null;
     try {
         con = dataBaseConfig.getConnection();
-        ps = con.prepareStatement(DBConstants.IN_PARKING);
-        //ID, PARKING_NUMBER, VEHICLE_REG_NUMBER, PRICE, IN_TIME, OUT_TIME)
-        ps.setString(1,vehicleRegNumber);
-        rs = ps.executeQuery();  
-        if(rs.next()){
-        	inParking = true;
+        PreparedStatement ps = con.prepareStatement(DBConstants.IN_PARKING);
+        ps.setString(1, vehiculeRegNumber);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            if(!rs.getBoolean("AVAILABLE")){
+                inParking = true;
+            }
         }
         dataBaseConfig.closeResultSet(rs);
         dataBaseConfig.closePreparedStatement(ps);
     }catch (Exception ex){
-        logger.error("Error reading",ex);
+        logger.error("Error can't define if vehicle is already in parking ",ex);
     }finally {
-    	
-        dataBaseConfig.closeResultSet(rs);
-        dataBaseConfig.closePreparedStatement(ps);
-        dataBaseConfig.closeConnection(con);         
-        
+        dataBaseConfig.closeConnection(con);
     }
     return inParking;
 }
-
 }

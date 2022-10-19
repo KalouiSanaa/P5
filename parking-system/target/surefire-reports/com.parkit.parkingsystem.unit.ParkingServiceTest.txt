@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.parkit.parkingsystem.unit.ParkingServiceTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 3.173 s <<< FAILURE! - in com.parkit.parkingsystem.unit.ParkingServiceTest
+processExitingVehicle_WithUpdatingTicketErrorTest  Time elapsed: 0.145 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.Exception to be thrown, but nothing was thrown.
+	at com.parkit.parkingsystem.unit.ParkingServiceTest.processExitingVehicle_WithUpdatingTicketErrorTest(ParkingServiceTest.java:99)
+
+processIncomingVehicle_WithAlreadyInParkingErrorTest  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.Exception to be thrown, but nothing was thrown.
+	at com.parkit.parkingsystem.unit.ParkingServiceTest.processIncomingVehicle_WithAlreadyInParkingErrorTest(ParkingServiceTest.java:78)
+
