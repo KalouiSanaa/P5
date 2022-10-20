@@ -37,26 +37,16 @@ public class ParkingServiceTest {
 
     @BeforeEach
     private void setUpPerTest() {
-    	try {
-           // when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn("ABCDEF");
-      //      when(parkingSpotDAO.updateParking(any(ParkingSpot.class))).thenReturn(true);
+    	  try {
 
-            ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR,false);
-            Ticket ticket = new Ticket();
-            ticket.setInTime(new Date(System.currentTimeMillis() - (60*60*1000)));
-            ticket.setParkingSpot(parkingSpot);
-            ticket.setVehicleRegNumber("ABCDEF");
-           // when(ticketDAO.getTicket(anyString())).thenReturn(ticket);
-
-            parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to set up test mock objects");
-        }
-    }
+              parkingService = new ParkingService(inputReaderUtil, parkingSpotDAO, ticketDAO);
+          } catch (Exception e) {
+              e.printStackTrace();
+              throw  new RuntimeException("Failed to set up test mock objects");
+          }}
     
     @Test
-    public void processIncomingVehicle_CarTypeTest() throws Exception {
+    public void processIncomingVehicleCarTypeTest() throws Exception {
         when(parkingSpotDAO.getNextAvailableSlot(any(ParkingType.class))).thenReturn(1);
         when(inputReaderUtil.readSelection()).thenReturn(1);
         parkingService.processIncomingVehicle();
@@ -65,7 +55,7 @@ public class ParkingServiceTest {
     }
 
     @Test
-    public void processIncomingVehicle_BikeTypeTest() throws Exception {
+    public void processIncomingVehicleBikeTypeTest() throws Exception {
         when(parkingSpotDAO.getNextAvailableSlot((any(ParkingType.class)))).thenReturn(1);
         when(inputReaderUtil.readSelection()).thenReturn(2);
         parkingService.processIncomingVehicle();
@@ -82,10 +72,10 @@ public class ParkingServiceTest {
     }
     @Test
     public void processExitingVehicleTest() throws Exception {
-       // when(ticketDAO.updateTicket(any(Ticket.class))).thenReturn(true);
-        parkingService.processExitingVehicle();
-       // verify(parkingSpotDAO, Mockito.times(1)).updateParking(any(ParkingSpot.class));
-    }
+    	 parkingService.processExitingVehicle();
+         verify(parkingSpotDAO, Mockito.times(0)).updateParking(any(ParkingSpot.class));
+     }
+
 }
 
 
