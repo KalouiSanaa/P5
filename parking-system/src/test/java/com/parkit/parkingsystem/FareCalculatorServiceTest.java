@@ -205,7 +205,7 @@ public class FareCalculatorServiceTest {
          ticket.setRecurent(true);
          fareCalculatorService.calculateFare(ticket);
           Thread.sleep(1000);
-         assertEquals((Math.round((0.95*Fare.CAR_RATE_PER_HOUR)* 100.0 / 100.0)),ticket.getPrice());
+         assertEquals((Math.round((0.95*Fare.CAR_RATE_PER_HOUR)* 100.0 / 100.0))+0.42,ticket.getPrice());
          
      }
     @Test
