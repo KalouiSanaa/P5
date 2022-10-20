@@ -169,20 +169,20 @@ public class FareCalculatorServiceTest {
     public void reccurentUserWithLessDayCarTestParking() {
     	 Date inTime = new Date();
          Date outTime = new Date();
-         inTime.setTime(System.currentTimeMillis() -(24 * 60 * 1000));
+         outTime.setTime(System.currentTimeMillis() +(23 * 60 * 1000));
          ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR, false);
          ticket.setInTime(inTime);
          ticket.setOutTime(outTime);
          ticket.setParkingSpot(parkingSpot);
-          ticket.setRecurent(true);
+         ticket.setRecurent(true);
          fareCalculatorService.calculateFare(ticket);
-         assertEquals((Fare.CAR_RATE_PER_HOUR)-1.5, ticket.getPrice());   
+         assertEquals(Math.round(Fare.CAR_RATE_PER_HOUR)-2, ticket.getPrice());   
          }
     @Test
     public void reccurentUserWithLessDayBikeTestParking() {
     	 Date inTime = new Date();
          Date outTime = new Date();
-        inTime.setTime(System.currentTimeMillis() -(24 * 60 * 1000));
+        outTime.setTime(System.currentTimeMillis() +(23* 60 * 1000));
          ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.BIKE, false);
          ticket.setInTime(inTime);
          ticket.setOutTime(outTime);

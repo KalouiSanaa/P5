@@ -36,7 +36,7 @@ public class FareCalculatorService {
                    if(ticket.getRecurent() && price > 0) {
                        price = Math.round((price *0.95)*100)/100.0;
                        ticket.setPrice(price); }
-                   else {
+                   else if(price >= 0){
                        ticket.setPrice(price);
                    }
                     break;
@@ -48,7 +48,7 @@ public class FareCalculatorService {
                    double price =TIME * Fare.BIKE_RATE_PER_HOUR;
                     if(ticket.getRecurent() && price > 0) {
                        price = Math.round((price *0.95)*100)/100.0;
-                    ticket.setPrice(price);}
+                       ticket.setPrice(price);}
                     else {
                         ticket.setPrice(price);
                     }
