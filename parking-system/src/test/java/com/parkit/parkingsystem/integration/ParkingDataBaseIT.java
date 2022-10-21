@@ -84,8 +84,8 @@ public class ParkingDataBaseIT {
         parkingService.processExitingVehicle();
         Thread.sleep(1000);
         //TODO: check that the fare generated and out time are populated correctly in the database
-        assertThat(ticketDAO.getTicket(test).getPrice()).isGreaterThanOrEqualTo(0);
-       assertNotNull(ticketDAO.getTicket(test).getOutTime());    
+        assertEquals(0.00, ticketDAO.getTicket(test).getPrice());
+        assertNotNull(ticketDAO.getTicket(test).getOutTime());    
 }
 
  

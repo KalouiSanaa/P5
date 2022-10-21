@@ -29,11 +29,11 @@ public class ParkingService {
 
     public void processIncomingVehicle() throws Exception {
     	  try{
-              ParkingSpot parkingSpot = getNextParkingNumberIfAvailable(); //vérifie place disponible
-              if(parkingSpot !=null && parkingSpot.getId() > 0){           // vérifie que l'objet parkingSpot existe et que son ID est > à 0
-                  String vehicleRegNumber = getVehichleRegNumber();        // récupère le numéro de plaque auprès de l'utilisateu                 //
-                  boolean recurrent = ticketDAO.recurrentUsers(vehicleRegNumber); //Check si le véhicule est recurrent
-                 boolean  ParkingYet = ticketDAO.alreadyAtParking(vehicleRegNumber); // Check si le véhicule est déja dans le parking
+              ParkingSpot parkingSpot = getNextParkingNumberIfAvailable(); 
+              if(parkingSpot !=null && parkingSpot.getId() > 0){          
+                  String vehicleRegNumber = getVehichleRegNumber();        
+                  boolean recurrent = ticketDAO.recurrentUsers(vehicleRegNumber); 
+                 boolean  ParkingYet = ticketDAO.alreadyAtParking(vehicleRegNumber); 
                  if(ParkingYet==true)
                  {
               	   
@@ -41,8 +41,8 @@ public class ParkingService {
            	   
                  }
                 
-                  parkingSpot.setAvailable(false);                         // la place de parking est désormais occupé
-                  parkingSpotDAO.updateParking(parkingSpot);               //allow this parking space and mark it's availability as false
+                  parkingSpot.setAvailable(false);                         
+                  parkingSpotDAO.updateParking(parkingSpot);             
 
                   Date inTime = new Date();
                   Ticket ticket = new Ticket();
@@ -117,11 +117,11 @@ public class ParkingService {
     public void processExitingVehicle() {
     	   try{
                String vehicleRegNumber = getVehichleRegNumber();
-               Ticket ticket = ticketDAO.getTicketWithOutTimeNull(vehicleRegNumber);
+               Ticket ticket = ticketDAO.getTicket(vehicleRegNumber);
                Date outTime = new Date();
                ticket.setOutTime(outTime);
               
-               boolean recurrent =  ticketDAO.recurrentUsers(vehicleRegNumber);  // reinteroger ici la db pour le recurrentuser
+               boolean recurrent =  ticketDAO.recurrentUsers(vehicleRegNumber); 
               if(recurrent==true){
                fareCalculatorService.calculateFare(ticket);}
               fareCalculatorService.calculateFare(ticket);
