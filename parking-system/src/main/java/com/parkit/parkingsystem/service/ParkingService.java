@@ -58,7 +58,7 @@ public class ParkingService {
                  
                   if(recurrent == true)
                   {
-                  	System.out.println("Welcome  back,you will benefit from a 5% discount!!!!");
+                  	System.out.println("Welcome  back,you will benefit of 5% discount!!!!");
                   }
                   
                   System.out.println("Generated Ticket and saved in DB");
