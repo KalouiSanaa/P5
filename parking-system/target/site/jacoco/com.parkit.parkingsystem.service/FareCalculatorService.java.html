@@ -5,7 +5,7 @@ import com.parkit.parkingsystem.model.Ticket;
 
 <span class="fc" id="L6">public class FareCalculatorService {</span>
 	private static final int HOURMILLISECONDS = 60 * 60 * 1000;
-    private static final double HALF_HOUR = 0.05;
+    private static final double HALF_HOUR = 0.5;
     
     public void calculateFare(Ticket ticket){
     	
@@ -17,50 +17,48 @@ import com.parkit.parkingsystem.model.Ticket;
 <span class="fc" id="L17">        long outHour = ticket.getOutTime().getTime();</span>
 
         //TODO: Some tests are failing here. Need to check if this logic is correct
-       //long duration = outHour - inHour;
        
-<span class="fc" id="L22">       double  TIME= (outHour - inHour) /HOURMILLISECONDS;</span>
+<span class="fc" id="L21">       double  TIME= (outHour - inHour) /HOURMILLISECONDS;</span>
    
-<span class="fc bfc" id="L24" title="All 2 branches covered.">         if(TIME &lt;=HALF_HOUR) {</span>
-                  
-<span class="fc" id="L26">        	 TIME = 0;</span>
-    	
-                   }
-
-       
+<span class="fc bfc" id="L23" title="All 2 branches covered.">         if(TIME &lt;HALF_HOUR){</span>
+        
+<span class="fc" id="L25">        	 TIME = 0;}</span>
+         
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        	if(TIME&gt;HALF_HOUR)  {</span>
+<span class="fc" id="L28">        	TIME=TIME-HALF_HOUR;</span>
+        	 }
+        	 
 <span class="pc bpc" id="L31" title="1 of 3 branches missed.">            switch (ticket.getParkingSpot().getParkingType()){</span>
-            
-           
                 case CAR: {
-<span class="fc" id="L35">                    double price =TIME * Fare.CAR_RATE_PER_HOUR;</span>
-<span class="fc bfc" id="L36" title="All 4 branches covered.">                   if(ticket.getRecurent() &amp;&amp; price &gt; 0) {</span>
-<span class="fc" id="L37">                       price = Math.round((price *0.95)*100)/100.0;</span>
-<span class="fc" id="L38">                       ticket.setPrice(price); }</span>
-                   else {
-<span class="fc" id="L40">                       ticket.setPrice(price);</span>
+<span class="fc" id="L33">                    double price =TIME * Fare.CAR_RATE_PER_HOUR;</span>
+<span class="pc bpc" id="L34" title="1 of 4 branches missed.">                   if(ticket.getRecurent() &amp;&amp; price &gt; 0) {</span>
+<span class="fc" id="L35">                       price = Math.round((price *0.95));</span>
+<span class="fc" id="L36">                       ticket.setPrice(price); }</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">                   else if(price&gt;0) {</span>
+<span class="fc" id="L38">                       ticket.setPrice(price);</span>
                    }
-<span class="fc" id="L42">                    break;</span>
+<span class="fc" id="L40">                    break;</span>
               
        
                
                 }
                 case BIKE: {
-<span class="fc" id="L48">                   double price =TIME * Fare.BIKE_RATE_PER_HOUR;</span>
-<span class="fc bfc" id="L49" title="All 4 branches covered.">                    if(ticket.getRecurent() &amp;&amp; price &gt; 0) {</span>
-<span class="fc" id="L50">                       price = Math.round((price *0.95)*100)/100.0;</span>
-<span class="fc" id="L51">                    ticket.setPrice(price);}</span>
-                    else {
-<span class="fc" id="L53">                        ticket.setPrice(price);</span>
+<span class="fc" id="L46">                   double price =TIME * Fare.BIKE_RATE_PER_HOUR;</span>
+<span class="pc bpc" id="L47" title="1 of 4 branches missed.">                    if(ticket.getRecurent() &amp;&amp; price &gt; 0) {</span>
+<span class="fc" id="L48">                       price = Math.round((price *0.95));</span>
+<span class="fc" id="L49">                       ticket.setPrice(price);}</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">                   else if(price&gt;0) {</span>
+<span class="fc" id="L51">                        ticket.setPrice(price);</span>
                     }
                   
-<span class="fc" id="L56">                    break;</span>
+<span class="fc" id="L54">                    break;</span>
               
                 }
           
-<span class="nc" id="L60">                default: throw new IllegalArgumentException(&quot;Unkown Parking Type&quot;);</span>
+<span class="nc" id="L58">                default: throw new IllegalArgumentException(&quot;Unkown Parking Type&quot;);</span>
  
             }
            
-<span class="fc" id="L64">        }</span>
+<span class="fc" id="L62">        }</span>
     }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

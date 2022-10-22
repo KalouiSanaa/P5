@@ -27,7 +27,7 @@ import java.util.Properties;
 <span class="nc" id="L27">      catch(IOException ex) {</span>
 <span class="nc" id="L28">    	  ex.getStackTrace();</span>
     	  
-<span class="nc" id="L30">      }</span>
+      }
 <span class="nc" id="L31">      String url = config.getProperty(&quot;db.url&quot;);</span>
 <span class="nc" id="L32">      String users = config.getProperty(&quot;db.user&quot;);</span>
 <span class="nc" id="L33">      String passwords = config.getProperty(&quot;db.password&quot;);</span>
@@ -43,7 +43,7 @@ import java.util.Properties;
 <span class="nc" id="L43">                logger.info(&quot;Closing connection&quot;);</span>
 <span class="nc" id="L44">            } catch (SQLException e) {</span>
 <span class="nc" id="L45">                logger.error(&quot;Error while closing connection&quot;,e);</span>
-<span class="nc" id="L46">            }</span>
+            }
         }
 <span class="nc" id="L48">    }</span>
     public void closePreparedStatement(PreparedStatement ps) {
@@ -53,7 +53,7 @@ import java.util.Properties;
 <span class="nc" id="L53">                logger.info(&quot;Closing Prepared Statement&quot;);</span>
 <span class="nc" id="L54">            } catch (SQLException e) {</span>
 <span class="nc" id="L55">                logger.error(&quot;Error while closing prepared statement&quot;,e);</span>
-<span class="nc" id="L56">            }</span>
+            }
         }
 <span class="nc" id="L58">    }</span>
 
@@ -64,7 +64,7 @@ import java.util.Properties;
 <span class="nc" id="L64">                logger.info(&quot;Closing Result Set&quot;);</span>
 <span class="nc" id="L65">            } catch (SQLException e) {</span>
 <span class="nc" id="L66">                logger.error(&quot;Error while closing result set&quot;,e);</span>
-<span class="nc" id="L67">            }</span>
+            }
         }
 <span class="nc" id="L69">    }</span>
 }
