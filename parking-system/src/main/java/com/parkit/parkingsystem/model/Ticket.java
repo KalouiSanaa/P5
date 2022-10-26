@@ -2,13 +2,13 @@ package com.parkit.parkingsystem.model;
 import java.util.Date;
 
 public class Ticket {
-    private int id;
-    private ParkingSpot parkingSpot;
-    private String vehicleRegNumber;
-    private double price;
-    private Date inTime;
+	 private boolean recurent;
+     private int id;
+     private ParkingSpot parkingSpot;
+     private String vehicleRegNumber;
+     private double price;
+     private Date inTime;
     private Date outTime;
-    private boolean recurent;
     private boolean atParking;
 
 

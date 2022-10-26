@@ -104,7 +104,7 @@ public boolean recurrentUsers (String vehiculeNumber) {
         if (rs.next()) {
             if(rs.getString("VEHICLE_REG_NUMBER").equalsIgnoreCase(vehiculeNumber)){
                recurent= true;
-                System.out.println("bienvenue vous avez le droit a  5% de reductions");
+                System.out.println("welcome you have 5% reduction");
         }
         }
         dataBaseConfig.closeResultSet(rs);
