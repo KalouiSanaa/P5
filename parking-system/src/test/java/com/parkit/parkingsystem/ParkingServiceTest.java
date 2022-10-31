@@ -95,7 +95,7 @@ public class ParkingServiceTest {
     }
 
     @Test
-    public void processExitingTestCar() {
+    public void processExitingCarTest() {
     	
     	ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR,false);
         Ticket ticket = new Ticket();
@@ -115,7 +115,7 @@ public class ParkingServiceTest {
     }
 
     @Test
-    public void processExitingTestBike() {
+    public void processExitingBikeTest() {
     	
     	ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.BIKE,false);
         Ticket ticket = new Ticket();
