@@ -27,7 +27,7 @@ public class ParkingService {
         this.ticketDAO = ticketDAO;
     }
 
-    public void processIncomingVehicle() throws Exception {
+    public void processIncomingVehicle() {
     	  try{
               ParkingSpot parkingSpot = getNextParkingNumberIfAvailable(); 
               if(parkingSpot !=null && parkingSpot.getId() > 0){          
@@ -71,7 +71,7 @@ public class ParkingService {
          }
    
       }
-    private String getVehichleRegNumber() throws Exception {
+    private String getVehichleRegNumber() {
         System.out.println("Please type the vehicle registration number and press enter key");
         return inputReaderUtil.readVehicleRegistrationNumber();
     }
