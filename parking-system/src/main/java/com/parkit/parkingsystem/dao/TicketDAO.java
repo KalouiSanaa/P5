@@ -44,7 +44,7 @@ public class TicketDAO {
     @SuppressWarnings("finally")
 	public Ticket getTicket(String vehicleRegNumber) {
         Connection con = null;
-        Ticket ticket = null;
+      Ticket ticket = null;
         try {
             con = dataBaseConfig.getConnection();
             PreparedStatement ps = con.prepareStatement(DBConstants.GET_TICKET);
@@ -60,6 +60,13 @@ public class TicketDAO {
                 ticket.setPrice(rs.getDouble(3));
                 ticket.setInTime(rs.getTimestamp(4));
                 ticket.setOutTime(rs.getTimestamp(5));
+                boolean recurent=ticket.getRecurent();
+				if(recurent==true) {
+                ticket.setRecurent(true);
+				}
+				else {
+					ticket.setRecurent(false);
+				}
             }
             dataBaseConfig.closeResultSet(rs);
             dataBaseConfig.closePreparedStatement(ps);

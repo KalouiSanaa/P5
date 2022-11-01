@@ -68,8 +68,8 @@ public class ParkingDataBaseIT {
         when(inputReaderUtil.readVehicleRegistrationNumber()).thenReturn(test);
         parkingService.processIncomingVehicle();
         //TODO: check that a ticket is actualy saved in DB and Parking table is updated with availability
-        assertEquals(test,ticketDAO.getTicket(test).getVehicleRegNumber());
-        assertTrue(parkingSpotDAO.updateParking(ticketDAO.getTicket(test).getParkingSpot()));     
+        assertEquals(test,ticketDAO.getTicket(test).getVehicleRegNumber());//ticket est bien enregistre a la bd
+        assertTrue(parkingSpotDAO.updateParking(ticketDAO.getTicket(test).getParkingSpot())); //table de stationnement est mise à jour avec la disponibilité     
     }
 
      @Test
@@ -80,8 +80,8 @@ public class ParkingDataBaseIT {
         parkingService.processExitingVehicle();
         Thread.sleep(1000);
         //TODO: check that the fare generated and out time are populated correctly in the database
-        assertEquals(0.00, ticketDAO.getTicket(test).getPrice());
-        assertNotNull(ticketDAO.getTicket(test).getOutTime());   
+        assertEquals(0.00, ticketDAO.getTicket(test).getPrice());//tarif bien genere a la base de donnees
+        assertNotNull(ticketDAO.getTicket(test).getOutTime());   //l heure de sortie bien genere dans la BD
 }
 
 }
