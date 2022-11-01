@@ -19,7 +19,7 @@ import java.sql.Timestamp;
 
 <span class="fc" id="L20">    public DataBaseConfig dataBaseConfig = new DataBaseConfig();</span>
 
-    @SuppressWarnings(&quot;finally&quot;)
+    
 	public boolean saveTicket(Ticket ticket){
 <span class="fc" id="L24">        Connection con = null;</span>
         try {
@@ -35,10 +35,10 @@ import java.sql.Timestamp;
 <span class="fc" id="L35">            return ps.execute();</span>
 <span class="nc" id="L36">        }catch (Exception ex){</span>
 <span class="nc" id="L37">            logger.error(&quot;Error fetching next available slot&quot;,ex);</span>
-        }finally {
-<span class="pc" id="L39">            dataBaseConfig.closeConnection(con);</span>
-<span class="pc" id="L40">            return false;</span>
         }
+<span class="nc" id="L39">            dataBaseConfig.closeConnection(con);</span>
+<span class="nc" id="L40">            return false;</span>
+        
     }
 
     @SuppressWarnings(&quot;finally&quot;)
@@ -63,18 +63,18 @@ import java.sql.Timestamp;
 <span class="fc" id="L63">                boolean recurent=ticket.getRecurent();</span>
 <span class="pc bpc" id="L64" title="1 of 2 branches missed.">				if(recurent==true) {</span>
 <span class="nc" id="L65">                ticket.setRecurent(true);</span>
-				}
+<span class="nc" id="L66">				}</span>
 				else {
 <span class="fc" id="L68">					ticket.setRecurent(false);</span>
 				}
             }
 <span class="fc" id="L71">            dataBaseConfig.closeResultSet(rs);</span>
 <span class="fc" id="L72">            dataBaseConfig.closePreparedStatement(ps);</span>
-<span class="nc" id="L73">        }catch (Exception ex){</span>
+<span class="pc" id="L73">        }catch (Exception ex){</span>
 <span class="nc" id="L74">            logger.error(&quot;Error fetching next available slot&quot;,ex);</span>
-        }finally {
-<span class="pc" id="L76">            dataBaseConfig.closeConnection(con);</span>
-<span class="pc" id="L77">            return ticket;</span>
+<span class="nc" id="L75">        }finally {</span>
+<span class="fc" id="L76">            dataBaseConfig.closeConnection(con);</span>
+<span class="fc" id="L77">            return ticket;</span>
         }
     }
 
@@ -116,7 +116,7 @@ public boolean recurrentUsers (String vehiculeNumber) {
         }
 <span class="fc" id="L117">        dataBaseConfig.closeResultSet(rs);</span>
 <span class="fc" id="L118">        dataBaseConfig.closePreparedStatement(ps);</span>
-<span class="nc" id="L119">    }catch (Exception ex){</span>
+<span class="pc" id="L119">    }catch (Exception ex){</span>
 <span class="nc" id="L120">        logger.error(&quot;Error can't define regular user &quot;,ex);</span>
     }finally {
 <span class="fc" id="L122">        dataBaseConfig.closeConnection(con);         </span>
@@ -126,7 +126,7 @@ public boolean recurrentUsers (String vehiculeNumber) {
 }
 
 
-public boolean alreadyAtParking (String vehiculeRegNumber) {
+public boolean alreadyAtParking (String vehiculeRegNumber)  {
 <span class="fc" id="L130">    boolean inParking = false;</span>
 <span class="fc" id="L131">    Connection con = null;</span>
     try {
@@ -141,7 +141,7 @@ public boolean alreadyAtParking (String vehiculeRegNumber) {
         }
 <span class="fc" id="L142">        dataBaseConfig.closeResultSet(rs);</span>
 <span class="fc" id="L143">        dataBaseConfig.closePreparedStatement(ps);</span>
-<span class="nc" id="L144">    }catch (Exception ex){</span>
+<span class="pc" id="L144">    }catch (Exception ex){</span>
 <span class="nc" id="L145">        logger.error(&quot;Error can't define if vehicle is already in parking &quot;,ex);</span>
     }finally {
 <span class="fc" id="L147">        dataBaseConfig.closeConnection(con);</span>

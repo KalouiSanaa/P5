@@ -19,7 +19,7 @@ public class TicketDAO {
 
     public DataBaseConfig dataBaseConfig = new DataBaseConfig();
 
-    @SuppressWarnings("finally")
+    
 	public boolean saveTicket(Ticket ticket){
         Connection con = null;
         try {
@@ -35,10 +35,10 @@ public class TicketDAO {
             return ps.execute();
         }catch (Exception ex){
             logger.error("Error fetching next available slot",ex);
-        }finally {
+        }
             dataBaseConfig.closeConnection(con);
             return false;
-        }
+        
     }
 
     @SuppressWarnings("finally")
@@ -126,7 +126,7 @@ public boolean recurrentUsers (String vehiculeNumber) {
 }
 
 
-public boolean alreadyAtParking (String vehiculeRegNumber) {
+public boolean alreadyAtParking (String vehiculeRegNumber)  {
     boolean inParking = false;
     Connection con = null;
     try {

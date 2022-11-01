@@ -18,14 +18,14 @@ public class FareCalculatorService {
 
         //TODO: Some tests are failing here. Need to check if this logic is correct
        
-       double  TIME= (outHour - inHour) /HOURMILLISECONDS;
+     float TIME=(outHour - inHour) /HOURMILLISECONDS;
    
          if(TIME <HALF_HOUR){
         
         	 TIME = 0;}
          
         	if(TIME>HALF_HOUR)  {
-        	TIME=TIME-HALF_HOUR;
+        	TIME=(float) (TIME-HALF_HOUR);
         	 }
         	 
             switch (ticket.getParkingSpot().getParkingType()){

@@ -18,14 +18,14 @@ import com.parkit.parkingsystem.model.Ticket;
 
         //TODO: Some tests are failing here. Need to check if this logic is correct
        
-<span class="fc" id="L21">       double  TIME= (outHour - inHour) /HOURMILLISECONDS;</span>
+<span class="fc" id="L21">     float TIME=(outHour - inHour) /HOURMILLISECONDS;</span>
    
 <span class="fc bfc" id="L23" title="All 2 branches covered.">         if(TIME &lt;HALF_HOUR){</span>
         
 <span class="fc" id="L25">        	 TIME = 0;}</span>
          
 <span class="fc bfc" id="L27" title="All 2 branches covered.">        	if(TIME&gt;HALF_HOUR)  {</span>
-<span class="fc" id="L28">        	TIME=TIME-HALF_HOUR;</span>
+<span class="fc" id="L28">        	TIME=(float) (TIME-HALF_HOUR);</span>
         	 }
         	 
 <span class="pc bpc" id="L31" title="1 of 3 branches missed.">            switch (ticket.getParkingSpot().getParkingType()){</span>
@@ -37,7 +37,7 @@ import com.parkit.parkingsystem.model.Ticket;
 <span class="fc bfc" id="L37" title="All 2 branches covered.">                   else if(price&gt;0) {</span>
 <span class="fc" id="L38">                       ticket.setPrice(price);</span>
                    }
-                    break;
+<span class="fc" id="L40">                    break;</span>
               
        
                
@@ -51,7 +51,7 @@ import com.parkit.parkingsystem.model.Ticket;
 <span class="fc" id="L51">                        ticket.setPrice(price);</span>
                     }
                   
-                    break;
+<span class="fc" id="L54">                    break;</span>
               
                 }
           
