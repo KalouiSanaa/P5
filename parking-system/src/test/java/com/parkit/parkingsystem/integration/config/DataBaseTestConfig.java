@@ -28,6 +28,10 @@ public class DataBaseTestConfig extends DataBaseConfig {
             } catch (SQLException e) {
                 logger.error("Error while closing connection",e);
             }
+            finally {
+            	 DataBaseConfig dataBaseConfig = new DataBaseConfig();
+				dataBaseConfig.closeConnection(con);
+            }
         }
     }
 

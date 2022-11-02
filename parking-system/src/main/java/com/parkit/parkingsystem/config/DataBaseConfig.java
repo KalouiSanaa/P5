@@ -29,6 +29,7 @@ public class DataBaseConfig {
             } catch (SQLException e) {
                 logger.error("Error while closing connection",e);
             }
+            
         }
     }
     public void closePreparedStatement(PreparedStatement ps) {
@@ -39,6 +40,7 @@ public class DataBaseConfig {
             } catch (SQLException e) {
                 logger.error("Error while closing prepared statement",e);
             }
+           
         }
     }
 
