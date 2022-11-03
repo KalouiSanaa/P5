@@ -16,6 +16,8 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import static com.parkit.parkingsystem.constants.ParkingType.BIKE;
 import static com.parkit.parkingsystem.constants.ParkingType.CAR;
+
+import java.sql.SQLException;
 import java.util.Date;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -95,7 +97,7 @@ public class ParkingServiceTest {
     }
 
     @Test
-    public void processExitingCarTest() {
+    public void processExitingCarTest() throws SQLException {
     	
     	ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.CAR,false);
         Ticket ticket = new Ticket();
@@ -115,7 +117,7 @@ public class ParkingServiceTest {
     }
 
     @Test
-    public void processExitingBikeTest() {
+    public void processExitingBikeTest() throws SQLException {
     	
     	ParkingSpot parkingSpot = new ParkingSpot(1, ParkingType.BIKE,false);
         Ticket ticket = new Ticket();
